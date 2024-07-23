@@ -10,9 +10,12 @@ This is assuming that you have python3 installed.
 
 To run this project locally run the following command
 
-`cd backend && python3 -m venv .venv` \n
-`. .venv/bin/activate` \n
-`python run.py && flask run`
+`cd backend && python3 -m venv .venv`  
+
+`. .venv/bin/activate`  
+
+`python run.py && flask run`  
+
 
 The webhook route is on `http://127.0.0.1:5000/actblue_donation`
 
