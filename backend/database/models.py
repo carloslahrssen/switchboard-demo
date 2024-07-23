@@ -1,0 +1,42 @@
+from sqlalchemy import Column, Integer, String, Boolean, DateTime, JSON, Numeric
+from datetime import datetime, timezone
+
+from database.db import Base
+
+class Donations(Base):
+    __tablename__ = 'public.donations'
+    id = Column(Integer, primary_key=True)
+    donor_firstname = Column(String(250))
+    donor_lastname = Column(String(250))
+    donor_addr1 = Column(String(250))
+    donor_city = Column(String(250))
+    donor_state = Column(String(50))
+    donor_zip = Column(String(50))
+    donor_is_eligible_for_express_lane = Column(Boolean)
+    donor_email = Column(String(250))
+    donor_phone = Column(String(128))
+    created_at = Column(DateTime(timezone = True), nullable=False, default=lambda: datetime.now(timezone.utc))
+    order_number = Column(String(150))
+    contribution_form = Column(String(150))
+    refcodes = Column(JSON)
+    refcode = Column(String(255))
+    recurring_period = Column(String(50))
+    recurring_duration = Column(String(50))
+    is_paypal = Column(Boolean)
+    is_mobile = Column(Boolean)
+    is_express = Column(Boolean)
+    with_express_lane = Column(Boolean)
+    express_signup = Column(Boolean)
+    unique_identifier = Column(String(75))
+    status = Column(String(75))
+    text_message_option = Column(String(75))
+    custom_fields = Column(JSON)
+    sequence = Column(Integer)
+    entity_id = Column(Integer)
+    committee_name = Column(String(150))
+    amount = Column(Numeric(19, 4))
+    paid_at = Column(DateTime(timezone = True), nullable=False, default=lambda: datetime.now(timezone.utc))
+    lineitem_id = Column(String(150), unique = True)
+    form_name = Column(String(150))
+    form_managing_entity_name = Column(String(150))
+    form_managing_entity_committee_name = Column(String(150))
